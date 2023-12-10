@@ -25,3 +25,13 @@ html {
 .slideContainer {
   border: none!important;
 }
+
+/* main margin responsive */
+main {
+  margin-top: 150px;
+}
+@media (max-width: 800px) {
+    main {
+      margin-top: 90px;
+    }
+}

@@ -20,7 +20,7 @@ root.render(
         <SageFemmeParc2000Theme>
             <Router>
                 <Header />
-                <main style={{ maxWidth: '1024px',marginTop: '150px', marginBottom: '50px', marginInline: 'auto' }}>
+                <main style={{ maxWidth: '1024px', marginBottom: '50px', marginInline: 'auto' }}>
                     <Routes>
                         <Route path={'*'} element={<PageNotFound />} />
                         <Route path="/" element={<Home />} />
