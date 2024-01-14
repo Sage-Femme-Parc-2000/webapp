@@ -1,8 +1,8 @@
 
 import TeamCard from "./TeamCard";
-import PictureSlider from "./PictureSlider";
 import {Chip, Divider, Stack} from "@mui/material";
 import MapLocation from "./MapLocation";
+import PicturesSlider from "../../components/PicturesSlider/PicturesSlider";
 
 export default function Home() {
 
@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <section>
             <Stack gap={4}>
-                <PictureSlider/>
+                <PicturesSlider />
                 <Divider sx={dividerStyle}>
                     <Chip label='Notre équipe !' color='secondary' sx={{fontSize: '15px'}}/>
                 </Divider>
