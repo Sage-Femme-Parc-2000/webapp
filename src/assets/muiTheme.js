@@ -2,6 +2,7 @@ import {
     createTheme,
     ThemeProvider
 } from "@mui/material";
+import Quicksand from './fonts/Quicksand/Quicksand-Regular.ttf';
 
 const colorTheme = createTheme({
     palette: {
@@ -14,7 +15,22 @@ const colorTheme = createTheme({
     }
 });
 
-const sageFemmeParc2000Theme = createTheme(colorTheme, {});
+const sageFemmeParc2000Theme = createTheme(colorTheme, {
+    typography: {
+        fontFamily: 'Quicksand, sans-serif'
+    },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: `
+                @font-face {
+                    font-family: 'Quicksand';
+                    font-weight: normal;
+                    src: local('Quicksand') local('Quicksand-Regular') url(${Quicksand}) format('truetype');
+                }
+            `
+        }
+    }
+});
 
 export default function SageFemmeParc2000Theme(props) {
     return (

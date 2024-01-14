@@ -1,7 +1,8 @@
 
 import {Link, useLocation} from 'react-router-dom'
 import {
-    IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Typography, useMediaQuery
+    Button,
+    IconButton, List, ListItem, ListItemButton, ListItemText, Stack, useMediaQuery
 } from "@mui/material";
 import logoInline from '../../assets/img/logoInline.png';
 import {CloseRounded, MenuRounded} from "@mui/icons-material";
@@ -14,7 +15,7 @@ export default function Header() {
 
     const menuList = [
         {name: 'Accueil', url: '/'},
-        {name: 'Reservation', url: '/Reservation'},
+        {name: 'Notre Equipe', url: '/Team'},
         {name: 'Contact', url: '/Contact'}
     ];
 
@@ -40,11 +41,19 @@ export default function Header() {
                             <Link
                                 key={'NavLink ' + menu.name}
                                 to={menu.url}
-                                style={{textDecoration: 'none', color: location.pathname === menu.url ? '#F5377B' : '#173054'}}
+                                style={{
+                                    textDecoration: 'none',
+                                    fontSize: '20px',
+                                    lineHeight: 1.7,
+                                    color: location.pathname === menu.url ? '#F5377B' : '#173054'
+                                }}
                             >
-                                <Typography fontSize={'20px'}>{menu.name}</Typography>
+                                {menu.name}
                             </Link>
                         )}
+                            <Link key={'NavLink ' + 'Reservation'} to='/Contact' style={{textDecoration: 'none'}}>
+                                <Button variant='contained' color='primary'>Prendre RDV</Button>
+                            </Link>
                     </Stack>
                     :
                     <IconButton size='large' edge={false} color='primary' onClick={() => setBurgerMenu(!burgerMenu)}>
@@ -68,6 +77,18 @@ export default function Header() {
                             </ListItem>
                         </Link>
                     )}
+                    <Link
+                        key={'NavLink ' + 'Reservation'}
+                        to='/Booking'
+                        style={{textDecoration: 'none'}}
+                        onClick={() => setBurgerMenu(false)}
+                    >
+                        <ListItem divider disablePadding>
+                            <ListItemButton sx={{backgroundColor: 'primary.main', color: 'white'}}>
+                                <ListItemText sx={{margin: 0, textAlign: 'center'}} primary={'Prendre RDV'} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
                 </List>
             }
         </Stack>

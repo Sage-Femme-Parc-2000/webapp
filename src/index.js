@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
-import Booking from "./pages/Booking/Booking";
 import Contact from "./pages/Contact/Contact";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import reportWebVitals from './utilities/reportWebVitals';
@@ -13,6 +12,7 @@ import reportWebVitals from './utilities/reportWebVitals';
 
 import './assets/css/global.css';
 import SageFemmeParc2000Theme from "./assets/muiTheme";
+import Team from "./pages/Team/Team";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,9 +22,9 @@ root.render(
                 <Header />
                 <main style={{ maxWidth: '1024px', marginBottom: '50px', marginInline: 'auto' }}>
                     <Routes>
-                        <Route path={'*'} element={<PageNotFound />} />
+                        <Route path='*' element={<PageNotFound />} />
                         <Route path="/" element={<Home />} />
-                        <Route path="/Reservation" element={<Booking />} />
+                        <Route path="/Team" element={<Team />} />
                         <Route path="/Contact" element={<Contact />} />
                     </Routes>
                 </main>

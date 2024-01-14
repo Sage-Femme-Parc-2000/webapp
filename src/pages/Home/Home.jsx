@@ -17,11 +17,11 @@ export default function Home() {
             <Stack gap={4}>
                 <PictureSlider/>
                 <Divider sx={dividerStyle}>
-                    <Chip label='Notre équipe !' color='secondary'/>
+                    <Chip label='Notre équipe !' color='secondary' sx={{fontSize: '15px'}}/>
                 </Divider>
                 <TeamCard/>
                 <Divider sx={dividerStyle}>
-                    <Chip label='Ou nous trouver ?' color='secondary'/>
+                    <Chip label='Où nous trouver ?' color='secondary' sx={{fontSize: '15px'}}/>
                 </Divider>
                 <MapLocation />
             </Stack>
