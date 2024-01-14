@@ -79,7 +79,7 @@ export default function Header() {
                     )}
                     <Link
                         key={'NavLink ' + 'Reservation'}
-                        to='/Booking'
+                        to='/Contact'
                         style={{textDecoration: 'none'}}
                         onClick={() => setBurgerMenu(false)}
                     >
