@@ -15,14 +15,15 @@ export default function Header() {
 
     const menuList = [
         {name: 'Accueil', url: '/'},
-        {name: 'Notre Equipe', url: '/Team'},
-        {name: 'Contact', url: '/Contact'}
+        {name: 'Notre Équipe', url: '/Team'},
+        {name: 'Nos Compétences', url: '/Skill'}
     ];
 
     return (
         <Stack
+            component={'header'}
             zIndex={1000} position='fixed' top={0} right={0} left={0}
-           backgroundColor={'white'} boxShadow={'0 13px 35px -12px rgba(35,35,35,.1)'}
+            backgroundColor={'white'} boxShadow={'0 13px 35px -12px rgba(35,35,35,.1)'}
         >
             <Stack
                 flexDirection='row'
@@ -52,7 +53,7 @@ export default function Header() {
                             </Link>
                         )}
                             <Link key={'NavLink ' + 'Reservation'} to='/Contact' style={{textDecoration: 'none'}}>
-                                <Button variant='contained' color='primary'>Prendre RDV</Button>
+                                <Button variant='contained' color='primary'>Contact / RDV</Button>
                             </Link>
                     </Stack>
                     :
@@ -85,7 +86,7 @@ export default function Header() {
                     >
                         <ListItem divider disablePadding>
                             <ListItemButton sx={{backgroundColor: 'primary.main', color: 'white'}}>
-                                <ListItemText sx={{margin: 0, textAlign: 'center'}} primary={'Prendre RDV'} />
+                                <ListItemText sx={{margin: 0, textAlign: 'center'}} primary={'Contact / RDV'} />
                             </ListItemButton>
                         </ListItem>
                     </Link>

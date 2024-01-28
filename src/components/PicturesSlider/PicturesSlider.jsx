@@ -38,7 +38,7 @@ export default function PicturesSlider() {
     };
 
     return (
-        <Stack height={isDesktop ? 500 : 300} position='relative' justifyContent={'center'} alignItems={'center'} borderRadius={'10px'} overflow={'hidden'}>
+        <Stack height={isDesktop ? 500 : 300} position='relative' justifyContent={'center'} alignItems={'center'} borderRadius={isDesktop ? '10px' : 0} overflow={'hidden'}>
             {SliderData.length > 0 && (
                 <>
                     <Stack left={0} sx={ButtonStyle} onClick={() => setCurrent(current === 0 ? length - 1 : current - 1)}>

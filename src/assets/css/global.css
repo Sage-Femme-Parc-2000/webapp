@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* main margin responsive */
+main {
+  margin-top: 150px;
+}
+@media (max-width: 800px) {
+  main {
+    margin-top: 90px;
+  }
+}
+
 html {
   /* ScrollBar Mozilla */
   scrollbar-color: #F5377B #FFF!important;
@@ -24,16 +34,6 @@ html {
 /* update style for react-smart-slide*/
 .slideContainer {
   border: none!important;
-}
-
-/* main margin responsive */
-main {
-  margin-top: 150px;
-}
-@media (max-width: 800px) {
-    main {
-      margin-top: 90px;
-    }
 }
 
 /* Quicksand Font*/
