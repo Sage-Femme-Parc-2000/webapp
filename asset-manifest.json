@@ -1,11 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.475093f5.css",
-    "main.js": "/static/js/main.d5dff3f6.js",
+    "main.css": "/static/css/main.4e4c8698.css",
+    "main.js": "/static/js/main.233e9f82.js",
     "static/js/787.bddca808.chunk.js": "/static/js/787.bddca808.chunk.js",
     "static/media/team4Picture.jpg": "/static/media/team4Picture.f62f757e9e8e4145401b.jpg",
     "static/media/team2Picture.jpg": "/static/media/team2Picture.7b41b261b20f4162cbb0.jpg",
     "static/media/team1Picture.jpg": "/static/media/team1Picture.9cac50dc60b02746b5a7.jpg",
+    "static/media/woman.jpg": "/static/media/woman.70d6199320e6735af28a.jpg",
+    "static/media/pregnant.jpg": "/static/media/pregnant.3d421ca7791b006ca563.jpg",
+    "static/media/baby.jpg": "/static/media/baby.f8fd01504d517b0d0315.jpg",
+    "static/media/adult.jpg": "/static/media/adult.4c346e141f85f0abebd1.jpg",
     "static/media/team3Picture.jpg": "/static/media/team3Picture.175815d6f065121be539.jpg",
     "static/media/3.jpg": "/static/media/3.fdfa6911bbf80d282bb0.jpg",
     "static/media/1.avif": "/static/media/1.54b74dbbe6d3a244a5b8.avif",
@@ -15,12 +19,12 @@
     "static/media/Quicksand-Light.ttf": "/static/media/Quicksand-Light.20523381a742ca1d4a26.ttf",
     "static/media/Quicksand-Bold.ttf": "/static/media/Quicksand-Bold.bac7ed87f9bcd95a6c55.ttf",
     "index.html": "/index.html",
-    "main.475093f5.css.map": "/static/css/main.475093f5.css.map",
-    "main.d5dff3f6.js.map": "/static/js/main.d5dff3f6.js.map",
+    "main.4e4c8698.css.map": "/static/css/main.4e4c8698.css.map",
+    "main.233e9f82.js.map": "/static/js/main.233e9f82.js.map",
     "787.bddca808.chunk.js.map": "/static/js/787.bddca808.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.475093f5.css",
-    "static/js/main.d5dff3f6.js"
+    "static/css/main.4e4c8698.css",
+    "static/js/main.233e9f82.js"
   ]
 }
