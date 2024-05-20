@@ -1,82 +1,111 @@
 
-import {useMemo, useState} from "react";
 import ACTIVITY_DATA from "../../datas/SkillData";
 
-import babyCategory from '../../assets/img/category/baby.jpg'
-import WomanCategory from '../../assets/img/category/woman.jpg'
-import pregnantCategory from '../../assets/img/category/pregnant.jpg'
-import adultCategory from '../../assets/img/category/adult.jpg'
-
-import {
-    Accordion, AccordionDetails, AccordionSummary, Avatar, Chip, Stack, Typography, useMediaQuery
-} from "@mui/material";
-import {ExpandMore} from "@mui/icons-material";
+import {Avatar, Box, Chip, Divider, IconButton, Modal, Stack, Typography, useMediaQuery} from "@mui/material";
+import {CloseRounded, KeyboardArrowRightRounded} from "@mui/icons-material";
+import {useState} from "react";
 
 export default function Skill() {
     const isDesktop = useMediaQuery('(min-width:800px)');
-    const [expanded, setExpanded] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(0)
-    const activityCategory = useMemo(() => ACTIVITY_DATA.filter(activity => activity.category === selectedCategory), [selectedCategory])
-
-    const categoryList = [
-        {id: 0, title: 'Enceinte', img: pregnantCategory},
-        {id: 1, title: 'Bébé', img: babyCategory},
-        {id: 2, title: 'Adultes', img: adultCategory},
-        {id: 3, title: 'Femme', img: WomanCategory},
-    ];
-
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : null);
-    };
+    const [activitySelected, setActivitySelected] = useState(null);
 
     return (
-        <Stack component={'section'} alignItems={'center'} gap={3}>
-            <Stack width={'100%'} flexDirection='row' justifyContent={'space-between'}>
-                {categoryList.map(category =>
-                    <Avatar
+        <>
+            <ActivityModal activity={activitySelected} setActivitySelected={setActivitySelected} />
+            <Stack component={'section'} flexDirection='column' alignItems={'center'} gap={3}>
+                {ACTIVITY_DATA.map(category =>
+                    <Stack
                         key={'Category ' + category.title}
-                        variant="rounded"
-                        src={category.img}
-                        sx={{
-                            width: 200,
-                            height: 200,
-                            boxShadow: selectedCategory === category.id ? '0 13px 35px -12px rgba(23,48,84,1)' : '0 13px 35px -12px rgba(35,35,35,.1)',
-                            '&:hover' : {
-                                boxShadow: '0 13px 35px -12px rgba(23,48,84,1)',
-                            }
-                        }}
-                        onClick={() => setSelectedCategory(category.id)}
-                    />
-                )}
-            </Stack>
-            {activityCategory.map((activity, index) =>
-                <Accordion
-                    key={'Activity ' + activity.name}
-                    disableGutters
-                    expanded={expanded === ('panel' + index)}
-                    onChange={handleChange('panel' + index)}
-                    sx={{boxShadow: '0 13px 35px -12px rgba(35,35,35,.1)'}}
-                >
-                    <AccordionSummary expandIcon={<ExpandMore />} sx={{ backgroundColor: 'rgba(23, 48, 84, 0.1)'}}>
-                        <Typography fontFamily={'Quicksand'} fontWeight={'bold'}>{activity.name}</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails sx={{p: '16px', display: 'flex',flexDirection: 'column', gap: '10px'}}>
-                        <Stack flexDirection={isDesktop ? 'row' : 'column'} justifyContent={'center'} gap={1}>
-                            {activity.team.map(collaborator =>
-                                <Chip
-                                    key={'Collaborator ' + collaborator.name}
-                                    avatar={<Avatar>{collaborator.name.match(/\b\w/g).join('').toUpperCase()}</Avatar>}
-                                    label={collaborator.name}
-                                    sx={{fontWeight: 'bold'}}
-                                />
+                        width={isDesktop ? '100%' : '90%'}
+                        flexDirection={isDesktop ? 'row' : 'column'}
+                        borderRadius={'10px'}
+                        overflow={'hidden'}
+                        backgroundColor={'white'}
+                        boxShadow={'0 13px 35px -12px rgba(35,35,35,.1)'}
+                        gap={isDesktop ? 0 : 2}
+                    >
+                        <Stack flexDirection='row' justifyContent={isDesktop ? 'space-between' : 'center'} marginTop={isDesktop ? 0 : 2}>
+                            <Avatar
+                                key={'Category ' + category.title}
+                                variant="rounded"
+                                src={category.img}
+                                sx={{width: 200, height: 200}}
+                            />
+                        </Stack>
+                        <Stack width={'100%'} justifyContent={'center'}>
+                            {category.activity.map((activity, index) =>
+                                <Box height={'100%'} key={'skill ' + activity.name}>
+                                    {(index!== 0 || !isDesktop) && <Divider flexItem/>}
+                                    <Stack
+                                        flexDirection='row'
+                                        minHeight={'50px'}
+                                        height={'100%'}
+                                        alignItems={'center'}
+                                        justifyContent={'space-between'}
+                                        px={3}
+                                        onClick={() => setActivitySelected(activity)}
+                                        sx={{'&:hover' : {backgroundColor: 'rgba(245,55,123,0.1)', cursor: 'pointer'}}}
+                                    >
+                                        <Typography color={'secondary'} fontSize={'17px'} fontFamily={'Quicksand'}>
+                                            {activity.name}
+                                        </Typography>
+                                        <Stack>
+                                            <KeyboardArrowRightRounded fontSize='medium' color='secondary'/>
+                                        </Stack>
+                                    </Stack>
+                                </Box>
                             )}
                         </Stack>
-                        <Typography>
-                            {activity.description}
-                        </Typography>
-                    </AccordionDetails>
-                </Accordion>
-            )}
-        </Stack>
+                    </Stack>
+                )}
+            </Stack>
+        </>
+    );
+}
+
+function ActivityModal({activity, setActivitySelected}) {
+    const isDesktop = useMediaQuery('(min-width:800px)');
+
+    return (
+        <Modal
+            open={activity !== null}
+            onClose={() => setActivitySelected(null)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Stack
+                width={isDesktop ? '40%' : '90%'}
+                backgroundColor={'white'}
+                position='absolute' top={'50%'} left={'50%'}
+                p={4}
+                gap={4}
+                borderRadius={'10px'}
+                sx={{transform: 'translate(-50%, -50%)'}}
+            >
+                <Stack flexDirection='row' alignItems={'center'} justifyContent={'space-between'}>
+                    <Typography color={'secondary'} fontSize={'20px'} fontWeight={'bold'} fontFamily={'Quicksand'}>
+                        {activity && activity.name}
+                    </Typography>
+                    <IconButton aria-label="close" onClick={() => setActivitySelected(null)}>
+                        <CloseRounded color='primary' fontSize='medium'/>
+                    </IconButton>
+                </Stack>
+
+                <Typography textAlign={'justify'}>
+                    {activity && activity.description}
+                </Typography>
+
+                <Stack flexDirection={isDesktop ? 'row' : 'column'} justifyContent={'center'} gap={1}>
+                    {activity && activity.team.map(collaborator =>
+                        <Chip
+                            key={'Collaborator ' + collaborator.name}
+                            avatar={<Avatar>{collaborator.name.match(/\b\w/g).join('').toUpperCase()}</Avatar>}
+                            label={collaborator.name}
+                            sx={{fontWeight: 'bold'}}
+                        />
+                    )}
+                </Stack>
+            </Stack>
+        </Modal>
     );
 }

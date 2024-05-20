@@ -16,7 +16,6 @@ export default function Contact() {
                     flexDirection={isDesktop ? (index%2 === 0 ? 'row-reverse' : 'row') : "column"}
                     width={'90%'}
                     alignItems={'center'}
-                    backgroundColor={'white'}
                     borderRadius={'10px'}
                     boxShadow={'0 13px 35px -12px rgba(35,35,35,.1)'}
                 >

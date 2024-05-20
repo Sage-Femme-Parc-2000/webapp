@@ -25,17 +25,21 @@ export default function Contact() {
                         <Typography py={3} color={'secondary'} fontSize={'20px'} fontWeight={'bold'} textAlign='center' fontFamily={'Quicksand'}>
                             {member.firstname} {member.name}
                         </Typography>
-                        <Stack width={'100%'} p={'0px 16px 30px 16px'} alignItems={'center'} gap={3}>
-                            <Divider variant='middle' flexItem/>
-                            <Stack flexDirection='row' alignItems={'center'} justifyContent={'center'} height={'100%'} gap={1}>
-                                <PhoneRounded color='primary' />
-                                <Link href={"tel:+33600000000"} fontSize={'18px'} color={'primary'} fontFamily={'Quicksand'}>
-                                    {member.tel}
-                                </Link>
-                            </Stack>
-                            <Typography fontSize={'14px'} color={'secondary'}>
-                                OU
-                            </Typography>
+                        <Divider variant='middle' flexItem/>
+                        <Stack width={'100%'} minHeight={'154.5px'} py={2} alignItems={'center'} justifyContent={'center'} gap={3}>
+                            {member.tel &&
+                                <>
+                                    <Stack flexDirection='row' alignItems={'center'} justifyContent={'center'} height={'100%'} gap={1}>
+                                        {member.tel && <PhoneRounded color='primary' />}
+                                        <Link href={"tel:+33600000000"} fontSize={'18px'} color={'primary'} fontFamily={'Quicksand'}>
+                                            {member.tel && member.tel}
+                                        </Link>
+                                    </Stack>
+                                    <Typography fontSize={'14px'} color={'secondary'}>
+                                        OU
+                                    </Typography>
+                                </>
+                            }
                             <Button href={member.url} variant='contained' target={'_blank'} >
                                 Prendre RDV
                             </Button>
