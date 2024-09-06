@@ -11,7 +11,12 @@ const MEMBER_LIST = [
 		firstname: 'Sophie',
 		img: Picture1,
 		tel: '06.28.34.47.99',
-		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA'
+		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA',
+		certifications : [
+			{text: 'Lorem ipsum dolor sit amet, consectetur adipiscing'},
+			{text: 'Single-line item'},
+			{text: 'Single-line item dolor sit amet'}
+		]
 	},
 	{
 		id: 1,
@@ -19,7 +24,12 @@ const MEMBER_LIST = [
 		firstname: 'Julie',
 		img: Picture2,
 		tel: '06.08.58.61.70',
-		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA'
+		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA',
+		certifications : [
+			{text: 'Lorem ipsum dolor sit amet, consectetur adipiscing'},
+			{text: 'Single-line item'},
+			{text: 'Single-line item dolor sit amet'}
+		]
 	},
 	{
 		id: 2,
@@ -27,7 +37,12 @@ const MEMBER_LIST = [
 		firstname: 'Stéphanie',
 		img: Picture3,
 		tel: '',
-		url: 'https://www.doctolib.fr/sage-femme-echographiste/montpellier/stephanie-mateu'
+		url: 'https://www.doctolib.fr/sage-femme-echographiste/montpellier/stephanie-mateu',
+		certifications : [
+			{text: 'Lorem ipsum dolor sit amet, consectetur adipiscing'},
+			{text: 'Single-line item'},
+			{text: 'Single-line item dolor sit amet'}
+		]
 	},
 	{
 		id: 3,
@@ -35,7 +50,12 @@ const MEMBER_LIST = [
 		firstname: 'Elsa',
 		img: Picture4,
 		tel: '06.27.33.00.79',
-		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA'
+		url: 'https://calendar.app.google/fM4LbP9maa6CU3dCA',
+		certifications: [
+			{text: '2021: Diplôme d\'état de sage-femme de l\'université de Montpellier, antenne de Nîmes'},
+			{text: '2022: Formation à la méthode de préparation à la naissance "Bonapace"'},
+			{text: '2022: Conventionnement avec le CHU de Montpellier pour la pratique d\'IVG médicamenteuse à domicile'}
+		]
 	}
 ];
 export default MEMBER_LIST;

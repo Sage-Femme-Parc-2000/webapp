@@ -2,7 +2,7 @@
 import MEMBER_LIST from "../../datas/TeamData";
 
 import {
-    Avatar, Stack, Typography, Divider, List, ListItem, ListItemText, useMediaQuery
+    Avatar, Stack, Typography, Divider, List, ListItem, ListItemText, useMediaQuery, Box
 } from "@mui/material";
 
 export default function Contact() {
@@ -10,16 +10,16 @@ export default function Contact() {
 
     return (
         <Stack component={'section'} justifyContent={'center'} alignItems={'center'} gap={2}>
-            {MEMBER_LIST.map((member, index) =>
+            {MEMBER_LIST.map((member, memberIndex) =>
                 <Stack
                     key={'Member' + member.name}
-                    flexDirection={isDesktop ? (index%2 === 0 ? 'row-reverse' : 'row') : "column"}
+                    flexDirection={isDesktop ? (memberIndex%2 === 0 ? 'row-reverse' : 'row') : "column"}
                     width={'90%'}
                     alignItems={'center'}
                     borderRadius={'10px'}
                     boxShadow={'0 13px 35px -12px rgba(35,35,35,.1)'}
                 >
-                    <Avatar variant="rounded" src={member.img} sx={{ width: 250, height: 250, marginTop: isDesktop ? 0 : 2 }} />
+                    <Avatar variant="rounded" src={member.img} sx={{ width: 280, height: 280, marginTop: isDesktop ? 0 : 2 }} />
                     <Stack width={'100%'} gap={2} alignItems={'center'} justifyContent={'center'} p={2}>
                         <Typography color={'secondary'} fontSize={'20px'} fontWeight={'bold'} fontFamily={'Quicksand'}>
                             {member.firstname} {member.name}
@@ -29,15 +29,11 @@ export default function Contact() {
                         </Stack>
                         <Stack width={'70%'} height={'100%'} alignItems={'center'} justifyContent={'center'} gap={1}>
                             <List dense>
-                                <ListItem>
-                                    <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing"/>
-                                </ListItem>
-                                <ListItem>
-                                    <ListItemText primary="Single-line item"/>
-                                </ListItem>
-                                <ListItem>
-                                    <ListItemText primary="Single-line item dolor sit amet"/>
-                                </ListItem>
+                                {member.certifications.map((certification, certificationIndex) =>
+                                    <ListItem key={'Certification ' + certificationIndex}>
+                                        <ListItemText primary={certification.text}/>
+                                    </ListItem>
+                                )}
                             </List>
                         </Stack>
                     </Stack>

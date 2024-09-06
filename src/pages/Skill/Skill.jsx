@@ -4,6 +4,7 @@ import ACTIVITY_DATA from "../../datas/SkillData";
 import {Avatar, Box, Chip, Divider, IconButton, Modal, Stack, Typography, useMediaQuery} from "@mui/material";
 import {CloseRounded, KeyboardArrowRightRounded} from "@mui/icons-material";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 export default function Skill() {
     const isDesktop = useMediaQuery('(min-width:800px)');
@@ -29,7 +30,7 @@ export default function Skill() {
                                 key={'Category ' + category.title}
                                 variant="rounded"
                                 src={category.img}
-                                sx={{width: 200, height: 200}}
+                                sx={{width: 230, height: 260}}
                             />
                         </Stack>
                         <Stack width={'100%'} justifyContent={'center'}>
@@ -97,12 +98,15 @@ function ActivityModal({activity, setActivitySelected}) {
 
                 <Stack flexDirection={isDesktop ? 'row' : 'column'} justifyContent={'center'} gap={1}>
                     {activity && activity.team.map(collaborator =>
-                        <Chip
-                            key={'Collaborator ' + collaborator.name}
-                            avatar={<Avatar>{collaborator.name.match(/\b\w/g).join('').toUpperCase()}</Avatar>}
-                            label={collaborator.name}
-                            sx={{fontWeight: 'bold'}}
-                        />
+                        <Link to={'/Contact'} style={{textDecoration: 'none'}}>
+                            <Chip
+                                key={'Collaborator ' + collaborator.name}
+                                avatar={<Avatar>{collaborator.name.match(/\b\w/g).join('').toUpperCase()}</Avatar>}
+                                label={collaborator.name}
+                                sx={{fontWeight: 'bold'}}
+                                clickable={true}
+                            />
+                        </Link>
                     )}
                 </Stack>
             </Stack>

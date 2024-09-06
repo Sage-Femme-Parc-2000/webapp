@@ -24,13 +24,16 @@ export default function Home() {
         "&::before, &::after": {borderColor: "secondary.main"},
     }
 
+    fetch("https://mybusiness.googleapis.com/v4/accounts/{accountId}/locations/{locationId}/reviews")
+        .then(res => console.log(res.json()))
+
     return (
         <Stack component={'section'} gap={5} alignItems={'center'}>
-            <GeneralInformations />
+            <GeneralInformations/>
             <Divider flexItem sx={dividerStyle}>
                 <Chip label='Nos locaux' color='secondary' sx={{fontSize: '15px'}}/>
             </Divider>
-            <PicturesSlider />
+            <PicturesSlider/>
             <Divider flexItem sx={dividerStyle}>
                 <Chip label='Notre équipe' color='secondary' sx={{fontSize: '15px'}}/>
             </Divider>
@@ -42,7 +45,7 @@ export default function Home() {
             <Divider flexItem sx={dividerStyle}>
                 <Chip label='Où nous trouver ?' color='secondary' sx={{fontSize: '15px'}}/>
             </Divider>
-            <LocationInformations />
+            <LocationInformations/>
         </Stack>
     );
 }
@@ -89,7 +92,8 @@ function TeamCard() {
                 >
                     <Avatar variant="rounded" src={member.img} sx={{ width: '100%', height: 200 }} />
                     <Stack p={2} alignItems={'center'} justifyContent={'center'} height={'100%'}>
-                        <Typography color={'secondary'} fontSize={'18px'} fontWeight={'bold'} textAlign='center' fontFamily={'Quicksand'}>
+                        <Typography color={'secondary'} fontSize={'18px'} fontWeight={'bold'} textAlign='center'
+                                    fontFamily={'Quicksand'}>
                             {member.firstname} {member.name}
                         </Typography>
                     </Stack>
@@ -116,11 +120,10 @@ function SkillInformations() {
             </Stack>
             <Stack p={4} gap={2}>
                 <Typography fontSize={"19px"} textAlign='justify' fontFamily={'Quicksand'}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
+                    La sage-femme est une profession médicale et à ce titre elle est en mesure de réaliser des prescriptions
+                    dans son champ de compétences, de dépister d'éventuelle pathologie et d'orienter si besoin.
                     <br/>
-                    <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+                    <br/>N'hésiter pas à aller jeter un coup d'oeil sur nos compétences.
                 </Typography>
                 <Link to={'/Skill'} style={{textDecoration: 'none'}}>
                     <Typography color={'primary'} fontFamily={'Quicksand'} fontSize={'20px'} fontWeight={'bold'} textAlign='center'>

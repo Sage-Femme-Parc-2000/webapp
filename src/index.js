@@ -13,6 +13,7 @@ import reportWebVitals from './utilities/reportWebVitals';
 
 import SageFemmeParc2000Theme from "./assets/muiTheme";
 import './assets/css/global.css';
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
             <Router>
                 <Header />
                 <main style={{ maxWidth: '1024px', marginBottom: '50px', marginInline: 'auto' }}>
+                    <ScrollToTop />
                     <Routes>
                         <Route path='*' element={<PageNotFound />} />
                         <Route path="/" element={<Home />} />
